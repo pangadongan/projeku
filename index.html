@@ -1,1 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Selamat Datang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a; /* dark navy */
+      --card:#0b1220;
+      --accent:#60a5fa; /* light blue */
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.05);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.08), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(99,102,241,0.06), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      display:flex;align-items:center;justify-content:center;padding:32px;
+    }
 
+    .card{
+      width:100%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;padding:36px;box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);
+      display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:center;
+    }
+
+    .left h1{font-size:36px;margin:0 0 12px 0;letter-spacing:-0.02em}
+    .left p{margin:0 0 20px 0;color:var(--muted);line-height:1.5}
+
+    .cta{display:flex;gap:12px}
+    .btn{
+      background:linear-gradient(90deg,var(--accent), #7c3aed);border:0;padding:12px 18px;border-radius:10px;color:#082030;font-weight:600;cursor:pointer;box-shadow:0 8px 20px rgba(96,165,250,0.12);
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);font-weight:600}
+
+    .right{
+      background:var(--glass);border-radius:12px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.03)
+    }
+    .logo{
+      width:96px;height:96px;border-radius:14px;background:linear-gradient(135deg,var(--accent), #7c3aed);display:flex;align-items:center;justify-content:center;color:#06202b;font-weight:700;font-size:28px;margin-bottom:14px;box-shadow:0 8px 22px rgba(124,58,237,0.12)
+    }
+    .small{color:var(--muted);font-size:14px}
+
+    /* simple fade-in */
+    .card{opacity:0;transform:translateY(8px);animation:enter .7s cubic-bezier(.2,.9,.3,1) forwards}
+    @keyframes enter{to{opacity:1;transform:none}}
+
+    /* responsive */
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr;}
+      .right{order:-1;margin-bottom:8px}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+
+    <section class="left">
+      <h1>Selamat Datang di Situs Kami 👋</h1>
+      <p>Halo! Senang sekali Anda berkunjung. Halaman ini dibuat sederhana namun modern — cocok untuk halaman pembuka sekolah, komunitas, atau proyek pribadi.
+      Gunakan tombol di bawah untuk mulai menjelajah atau menyesuaikan halaman.</p>
+
+      <div class="cta">
+        <button class="btn" onclick="welcomeAction()">Mulai</button>
+        <button class="btn ghost" onclick="customize()">Sesuaikan</button>
+      </div>
+
+      <p class="small" style="margin-top:18px">Jika Anda menginginkan versi yang berbeda (tema terang, bahasa Inggris, atau tambahan form kontak), beri tahu saya.</p>
+    </section>
+
+    <aside class="right" aria-label="Informasi singkat">
+      <div class="logo">ELF</div>
+      <div style="text-align:center">
+        <div style="font-weight:600;font-size:18px;margin-bottom:6px">Nama Situs / Sekolah</div>
+        <div class="small">Contoh: SMK Negeri 1 — Selamat belajar dan berkarya setiap hari!</div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script>
+    function welcomeAction(){
+      const msg = 'Selamat datang! Semoga harimu menyenangkan.';
+      // ringkas dan sederhana: tampilkan notifikasi kecil
+      if(window.confirm(msg + '\n\nApakah Anda ingin melihat informasi lebih lanjut?')){
+        alert('Tidak ada halaman lain saat ini. Beri tahu saya jika Anda ingin menambahkan.');
+      }
+    }
+    function customize(){
+      alert('Ketikkan perubahan yang Anda mau: warna, teks, bahasa, atau tata letak.');
+    }
+  </script>
+</body>
+</html>
